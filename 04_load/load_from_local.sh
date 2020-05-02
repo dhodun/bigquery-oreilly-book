@@ -2,7 +2,7 @@
 
 LOC="--location US"
 
-bq $LOC mk ch03
+bq $LOC mk ch04
 
 zless ./college_scorecard.csv.gz | sed 's/PrivacySuppressed/NULL/g' | gzip > /tmp/college_scorecard.csv.gz
 
@@ -12,7 +12,7 @@ SCHEMA="--schema=schema.json --skip_leading_rows=1"
 bq $LOC \
    load --null_marker=NULL --replace \
    --source_format=CSV $SCHEMA \
-   ch03.college_scorecard \
+   ch04.college_scorecard \
    /tmp/college_scorecard.csv.gz
 
 #   ./college_scorecard.csv.gz \
